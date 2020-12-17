@@ -7,7 +7,6 @@
         body{
             font: normal 20pt Arial;
             background-color: rgb(106, 106, 211);
-            text-align: center;
         }
         button{
             background-color: rgb(0, 255, 149);
@@ -21,20 +20,48 @@
 </head>
 <body>
     <h1>Conversor de Medidas</h1>
-    <button onclick="converter()">Converter</button>
-    <P>Clique no botão acima para iniciar.</P>
-    <div id=""></div>
+    <button id="butt" onclick="converter()">Converter</button>
+    <section id="MTela">
+        <P>Clique no botão acima para iniciar.</P>
+    </section>
+     <p id="dm"></p>
+     <p id="cm"></p>
+     <p id="mm"></p>
+     <p id="dam"></p>
+     <p id="hm"></p>
+     <p id="km"></p>
     <script>
         function converter(){
-            var m = Number(prompt('Digite uma distância em metro (m)'))
+            var m = Number(prompt('Digite em m:'))
+            
+            var metros = document.getElementById('MTela')
+            metros.innerHTML = `<p><strong>A distânida de ${m} metros, corresponde a...</strong></p>`
+            
             var dm = Number((m * 10))
+            var decimetros = document.getElementById('dm')
+            decimetros.innerHTML = `${dm} em decimetros (dm)`
+
             var cm = Number((dm * 10))
+            var centimetros = document.getElementById('cm')
+            centimetros.innerHTML = `${cm} centímetros (cm)`
+
             var mm = Number((cm * 10))
+            var milimetros = document.querySelector('p#mm')
+            milimetros.innerHTML = `${mm} milímetros (mm)`
+
             var dam = Number((m / 10))
+            var decametros = document.querySelector('p#dam')
+            decametros.innerHTML = `${dam} em decâmetros (Dam)`
+
             var hm = Number((dam / 10))
+            var hectometro = document.querySelector('p#hm')
+            hectometro.innerHTML = `${hm} hectometro (Hm)`
+
             var km = Number((hm / 10))
-            document.write(`A distância de ${km} metros, corresponde a...`)
+            var quilometro = document.querySelector('p#km')
+            quilometro.innerHTML = `${km} quilômetro (Km)`
         }
+       
     </script>
 </body>
 </html>
